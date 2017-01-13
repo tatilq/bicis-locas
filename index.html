@@ -16,34 +16,33 @@
   <body>
     <section class="form-container">
       <div class="container-fluid">
-        <form class="form-signup">
+        <form class="form-signup" action="" method="get" onsubmit="return valida(this)" >
           <h2 id="form-signup-heading">
             Bicis Locas
           </h2>
           <div class="name-container input-box">
             <label for="name" class="sr-only">Nombre</label>
             <input type="text" id="name" class="form-control"
-            placeholder="Ingrese su nombre">
+            placeholder="Ingrese su nombre" onkeydown="checkInput(event)" required>
           </div>
           <div class="lastname-container input-box">
-            <label for="lastname" class="sr-only">Apellido</label>
-            <input type="text" id="lastname" class="form-control"
-            placeholder="Ingrese su apellido">
+            <label for="lastname" class="sr-only"s>Apellido</label>
+            <input type="text" id="lastname" class="form-control " onkeydown="checkInput(event)" placeholder="Ingrese su apellido" required>
           </div>
           <div class="email-container input-box">
             <label for="inputEmail" class="sr-only">
               Correo Electrónico
             </label>
-            <input type="email" id="input-email" class="form-control" placeholder="Ingrese su correo electrónico" autofocus="">
+            <input type="email" id="input-email" class="form-control" placeholder="Ingrese su correo electrónico" autofocus=""  onKeyPress="valida_email()" required>
           </div>
           <div class="form-group">
             <label for="inputPassword" class="sr-only">
               Contraseña
             </label>
-            <input type="password" id="input-password" class="form-control" placeholder="Ingrese su contraseña">
+            <input type="password" id="input-password" class="form-control" placeholder="Ingrese su contraseña"  required>
           </div>
           <div class="form-group">
-            <select class="form-control">
+            <select class="form-control" required>
               <option value="0">Selecciona tu tipo de bici</option>
               <option value="urbana">Urbana</option>
               <option value="treking">Treking</option>
@@ -61,6 +60,7 @@
               <span>Deseo recibir información vía email</span>
             </label>
           </div>
+          <div id="salida"></div>
           <button class="btn btn-lg btn-primary btn-block submit-btn" type="submit">Registrar</button>
         </form>
       </div>  
