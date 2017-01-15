@@ -16,36 +16,17 @@ function checkInput(evt)
   else
       evt.preventDefault();
 }
-/*
-function valida_email() {
-		
-	var input_email=document.getElementById("input_email").value;
-
-	
-	if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/.test(input_email))
-	{
-		alert("direccion correcta");
-
-	}
-	else 
-	{
-		alert("dirección email es incorrecta.");
-	}
-
-}*/
+/*var nombre = "juan alberto del prado y las casas";
+var minusculas = nombre.slice(1);
+nombre = nombre[0].toUpperCase() + minusculas;
+console.log(nombre);*/
 
 //function validateForm(){}
 
-function valida(f) 
+function valida() 
 {
-  var ok = true;
-  var salida = document.getElementById("salida").value;
-
-  if(f.input-social.value == "")
-  {
-    salida.innerHTML="Debes escribir contenido";
-    ok = false;
-  }
-
-  return ok;
+  var nombre = document.getElementById("name");
+  var minusculas = nombre.value.slice(1);
+  //alert(minusculas+"tati");
+  nombre = nombre[0].value.toUpperCase() + minusculas;
 }
