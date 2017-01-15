@@ -8,7 +8,9 @@ El valor seleccionado de bicis, debe ser una de las opciones presentadas
 Si algún campo presenta error debe informarse al usuario por medio de un alert.
 */
 //validar que solo se ingrese letras a nombres y apellidos
+//function validateForm(){} 
 
+//validar que solo se escriba letras
 function checkInput(evt)
 {
   if(window.event.keyCode >='65' && window.event.keyCode<='90' || window.event.keyCode =='8' || window.event.keyCode =='32')
@@ -16,17 +18,17 @@ function checkInput(evt)
   else
       evt.preventDefault();
 }
-/*var nombre = "juan alberto del prado y las casas";
-var minusculas = nombre.slice(1);
-nombre = nombre[0].toUpperCase() + minusculas;
-console.log(nombre);*/
-
-//function validateForm(){}
-
-function valida() 
+//convierte la primera letra en mayuscula
+function convierteMayus() 
 {
   var nombre = document.getElementById("name");
-  var minusculas = nombre.value.slice(1);
-  //alert(minusculas+"tati");
-  nombre = nombre[0].value.toUpperCase() + minusculas;
+  var apellido = document.getElementById("lastname");
+  var nom=[];
+  var apell=[];
+  var minuNombre = nombre.value.slice(1);
+  var minuApellido = apellido.value.slice(1);
+  nom=nombre.value;
+  apell=apellido.value;
+  nombre.value = nom[0].toUpperCase()+minuNombre;
+  apellido.value = apell[0].toUpperCase()+minuApellido;
 }
