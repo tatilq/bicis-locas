@@ -1,6 +1,5 @@
-
 //validar que todos los campos esten llenos
-function validateForm(form)
+function validateForm()
 {
   var name = document.getElementById("name").value;
   var lastname = document.getElementById("lastname".value);
@@ -8,7 +7,6 @@ function validateForm(form)
   var userlastname = document.getElementById("lastname").value;
   var useremail = document.getElementById("input-email").value;
   var salida_enviar = document.getElementById("salida_enviar");
-
   if(username == "" || userlastname =="" || useremail =="" || validaPass()==false || validaBici()==false)
   { 
     salida_enviar.innerHTML="<p style='color:red; font-size:15px;' >Falta llenar Campos</p>";
@@ -19,44 +17,48 @@ function validateForm(form)
     salida_enviar.innerHTML="<p style='color:green; font-size:15px;' >Formulario enviado ✔</p>";
     return true;
   } 
-} 
-
-//validar que solo se escriba letras
-function checkInput(evt)
-{
-  if(window.event.keyCode >='65' && window.event.keyCode<='90' || window.event.keyCode =='8' || window.event.keyCode =='32')
-  {
-    return true;
-  } 
-  else
-      evt.preventDefault();
 }
 //convierte la primera letra en mayuscula
-function validaName(form) 
+function validaName() 
 {
   var nombre = document.getElementById("name");
   var salida_name = document.getElementById("salida_name");
-  var nom=[];
-  var minuNombre = nombre.value.slice(1);
-  nom=nombre.value;
-  nombre.value = nom[0].toUpperCase()+minuNombre;
-  salida_name.innerHTML="<p style='color:green; font-size:15px;' >Nombre valido, primera letra mayuscula ✔</p>";
-    
+  
+  if((/^[a-zA-Z\s]*$/).test(nombre.value))
+  {
+    var nom=[];
+    var minuNombre = nombre.value.slice(1);
+    nom=nombre.value;
+    nombre.value = nom[0].toUpperCase()+minuNombre;
+    salida_name.innerHTML="<p style='color:green; font-size:15px;' >Nombre valido, primera letra mayuscula ✔</p>";
+  }
+  else
+  {
+    salida_name.innerHTML="<p style='color:red; font-size:15px;' >Debes escribir letras</p>";
+  
+  }
 }
 //valida el nombre segun el formato valido
-function validaLastname(form) 
+function validaLastname() 
 {
   var apellido = document.getElementById("lastname");
   var salida_lastname = document.getElementById("salida_lastname");
-  var apell=[];
-  var minuApellido = apellido.value.slice(1);
-  apell=apellido.value;
-  apellido.value = apell[0].toUpperCase()+minuApellido;
-  salida_lastname.innerHTML="<p style='color:green; font-size:15px;' >Apellido valido, primera letra mayuscula ✔</p>";
- 
+  if((/^[a-zA-Z\s]*$/).test(apellido.value))
+  {
+    var apell=[];
+    var minuApellido = apellido.value.slice(1);
+    apell=apellido.value;
+    apellido.value = apell[0].toUpperCase()+minuApellido;
+    salida_lastname.innerHTML="<p style='color:green; font-size:15px;' >Apellido valido, primera letra mayuscula ✔</p>";
+  }
+  else
+  {
+    salida_lastname.innerHTML="<p style='color:red; font-size:15px;' >Debes escribir letras</p>";
+  
+  }
 }
 //valida el email segun el formato valido
-function validaEmail(form) 
+function validaEmail() 
 {
   
   var email = document.getElementById("input-email").value;
