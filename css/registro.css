@@ -78,4 +78,4 @@
 
 /*ESTILOS EXTRAS*/
 
-#salida_mail{color: red;}
+#salida_mail, #salida_pass{color: red; }

@@ -14,26 +14,19 @@ function validateForm()
   var userlastname = document.getElementById("lastname").value;
   var useremail = document.getElementById("input-email").value;
   var userpassword = document.getElementById("input-password").value;
+   var salida_enviar = document.getElementById("salida_enviar");
 
-  if(username.length == 0 ){
-    alert("Por favor digite su nombre");
+  if(username.length == 0  || userlastname.length == 0 || useremail.length == 0 || userpassword.length == 0)
+  {
+    salida_enviar.innerHTML="<p style='color:red; font-size:20px;'> Faltan campos por llenar</p>";
+    
     return false;
   } 
-
-  if(userlastname ==""){
-    alert("Por favor digite su apellido");
-    return false;
-  } 
-
-  if(useremail ==""){
-    alert("Por favor digite su correo electrónico");
-    return false;
-  } 
-
-  if(userpassword ==""){
-    alert("Por favor digite su contraseña");
-    return false;
+  else
+  {
+    salida_enviar.innerHTML="<p style='color:green; font-size:15px;'>Campos llenados correctamente✔</p>";
   }
+
 } 
 
 //validar que solo se escriba letras
@@ -58,7 +51,7 @@ function validaName(form)
 }
 function validaLastname(form) 
 {
-  form.e.disabled=(form.l.value=='');
+  //form.e.disabled=(form.l.value=='');
   var apellido = document.getElementById("lastname");
   var apell=[];
   var minuApellido = apellido.value.slice(1);
@@ -70,20 +63,39 @@ function validaEmail(form)
 {
   
   var email = document.getElementById("input-email").value;
-   var salida_mail = document.getElementById("salida_mail");
+  var salida_mail = document.getElementById("salida_mail");
   
-
   if (!email.match(/^[A-Za-z\._\-0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)) 
   {
-    salida_mail.innerHTML="Compruebe que el Correo Electrónico contenga un formato válido. Ej: name@domain.com";
+    salida_mail.innerHTML="<p style='color:red; font-size:15px;' >Formato Invalido, Ej: name@domain.com</p>";
     return false;
   }
   else 
   {
-     salida_mail.innerHTML="Correo Electrónico Válido ✔";
-     form.p.disabled=(form.e.value=='');
+    salida_mail.innerHTML="<p style='color:green; font-size:20px;'>✔</p>";
+    form.p.disabled=(form.e.value=='');
     return true;
   }
   
+}
+function validaPass()
 
+{
+  var password = document.getElementById("input-password").value;
+  var salida_pass = document.getElementById("salida_pass");
+  if (!password.match(/.{6,}/)) 
+  {
+    salida_pass.innerHTML="<p style='color:red; font-size:15px;'>Minimo 6 caracteres</p>";
+    return false;
+  }
+  else if (password == "password" || password == "123456" || password == "098754") 
+  {
+    salida_pass.innerHTML="<p style='color:red; font-size:15px;' >Contraseña Invalida</p>";
+    return false;
+  }
+  else 
+  {
+    salida_pass.innerHTML="<p style='color:green; font-size:20px;'>✔</p>";
+    return true;
+  }
 }
