@@ -9,8 +9,8 @@ function validateForm(form)
   var useremail = document.getElementById("input-email").value;
   var salida_enviar = document.getElementById("salida_enviar");
 
-  if(username == "" || userlastname =="" || useremail =="" || validaPass()==false || validaBici()==false){
-      
+  if(username == "" || userlastname =="" || useremail =="" || validaPass()==false || validaBici()==false)
+  { 
     salida_enviar.innerHTML="<p style='color:red; font-size:15px;' >Falta llenar Campos</p>";
     return false;
   }
@@ -34,27 +34,25 @@ function checkInput(evt)
 //convierte la primera letra en mayuscula
 function validaName(form) 
 {
-  form.l.disabled=(form.n.value=='');
   var nombre = document.getElementById("name");
   var salida_name = document.getElementById("salida_name");
   var nom=[];
   var minuNombre = nombre.value.slice(1);
   nom=nombre.value;
   nombre.value = nom[0].toUpperCase()+minuNombre;
-  salida_name.innerHTML="<p style='color:green; font-size:15px;' >Nombre valido ✔</p>";
+  salida_name.innerHTML="<p style='color:green; font-size:15px;' >Nombre valido, primera letra mayuscula ✔</p>";
     
 }
 //valida el nombre segun el formato valido
 function validaLastname(form) 
 {
-  //form.e.disabled=(form.l.value=='');
   var apellido = document.getElementById("lastname");
   var salida_lastname = document.getElementById("salida_lastname");
   var apell=[];
   var minuApellido = apellido.value.slice(1);
   apell=apellido.value;
   apellido.value = apell[0].toUpperCase()+minuApellido;
-  salida_lastname.innerHTML="<p style='color:green; font-size:15px;' >Apellido valido ✔</p>";
+  salida_lastname.innerHTML="<p style='color:green; font-size:15px;' >Apellido valido, primera letra mayuscula ✔</p>";
  
 }
 //valida el email segun el formato valido
@@ -72,7 +70,6 @@ function validaEmail(form)
   else 
   {
     salida_mail.innerHTML="<p style='color:green; font-size:15px;'>Email valido ✔</p>";
-    form.p.disabled=(form.e.value=='');
     return true;
   }
   
