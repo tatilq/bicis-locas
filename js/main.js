@@ -1,13 +1,10 @@
 //validar que todos los campos esten llenos
 function validateForm()
 {
-  var name = document.getElementById("name").value;
-  var lastname = document.getElementById("lastname".value);
-  var username = document.getElementById("name").value;
-  var userlastname = document.getElementById("lastname").value;
-  var useremail = document.getElementById("input-email").value;
   var salida_enviar = document.getElementById("salida_enviar");
-  if(username == "" || userlastname =="" || useremail =="" || validaPass()==false || validaBici()==false)
+  var nombre = document.getElementById("name").value;   
+  var lastname = document.getElementById("lastname").value;    
+  if( nombre.length == 0 || lastname.length == 0 || validaEmail()==false || validaPass()==false || validaBici()==false)
   { 
     salida_enviar.innerHTML="<p style='color:red; font-size:15px;' >Falta llenar Campos</p>";
     return false;
@@ -18,44 +15,68 @@ function validateForm()
     return true;
   } 
 }
+
 //convierte la primera letra en mayuscula
 function validaName() 
 {
-  var nombre = document.getElementById("name");
-  var salida_name = document.getElementById("salida_name");
+    var nombre = document.getElementById("name").value;    
+    var nombreArray = nombre.split("");
+    var primeraLetra = nombreArray[0];
+    var primeraMayus = primeraLetra.toUpperCase();
+    var cortePalabra = false;
+    if(/^[a-zA-Z\s]*$/.test(nombre))
+    {
+        for(var i=1;i<nombreArray.length;i++)
+        {
+          if(cortePalabra)
+          {    
+            primeraMayus += nombreArray[i].toUpperCase();
+            cortePalabra = false;
+          }
+          else
+              primeraMayus+=nombreArray[i];
+          if(nombreArray[i] == " ")
+              cortePalabra = true;
+        } 
+        document.getElementById("name").value = primeraMayus; 
+      salida_name.innerHTML="<p style='color:green; font-size:15px;' >Nombre valido ✔</p>";
+    }
+    else
+    {
+       salida_name.innerHTML="<p style='color:red; font-size:15px;' >Debes escribir letras</p>";
+    }
   
-  if((/^[a-zA-Z\s]*$/).test(nombre.value))
-  {
-    var nom=[];
-    var minuNombre = nombre.value.slice(1);
-    nom=nombre.value;
-    nombre.value = nom[0].toUpperCase()+minuNombre;
-    salida_name.innerHTML="<p style='color:green; font-size:15px;' >Nombre valido, primera letra mayuscula ✔</p>";
-  }
-  else
-  {
-    salida_name.innerHTML="<p style='color:red; font-size:15px;' >Debes escribir letras</p>";
-  
-  }
 }
-//valida el nombre segun el formato valido
+//valida el apellido segun el formato valido
 function validaLastname() 
 {
-  var apellido = document.getElementById("lastname");
-  var salida_lastname = document.getElementById("salida_lastname");
-  if((/^[a-zA-Z\s]*$/).test(apellido.value))
-  {
-    var apell=[];
-    var minuApellido = apellido.value.slice(1);
-    apell=apellido.value;
-    apellido.value = apell[0].toUpperCase()+minuApellido;
-    salida_lastname.innerHTML="<p style='color:green; font-size:15px;' >Apellido valido, primera letra mayuscula ✔</p>";
-  }
-  else
-  {
-    salida_lastname.innerHTML="<p style='color:red; font-size:15px;' >Debes escribir letras</p>";
+    var lastname = document.getElementById("lastname").value;    
+    var nombreArray = lastname.split("");
+    var primeraLetra = nombreArray[0];
+    var primeraMayus = primeraLetra.toUpperCase();
+    var cortePalabra = false;
+    if(/^[a-zA-Z\s]*$/.test(lastname))
+    {
+        for(var i=1;i<nombreArray.length;i++)
+        {
+          if(cortePalabra)
+          {    
+            primeraMayus += nombreArray[i].toUpperCase();
+            cortePalabra = false;
+          }
+          else
+              primeraMayus+=nombreArray[i];
+          if(nombreArray[i] == " ")
+              cortePalabra = true;
+        } 
+        document.getElementById("lastname").value = primeraMayus; 
+      salida_lastname.innerHTML="<p style='color:green; font-size:15px;' >Apellido valido ✔</p>";
+    }
+    else
+    {
+     salida_lastname.innerHTML="<p style='color:red; font-size:15px;' >Debes escribir letras</p>";  
+    }
   
-  }
 }
 //valida el email segun el formato valido
 function validaEmail() 
@@ -93,7 +114,7 @@ function validaPass()
     return false;
   }
   else 
-  {
+  { 
     salida_pass.innerHTML="<p style='color:green; font-size:15px;'>Contraseña valida ✔</p>";
     return true;
   }
