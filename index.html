@@ -23,26 +23,26 @@
           <div class="name-container input-box">
             <label for="name" class="sr-only">Nombre</label>
             <input type="text" id="name" class="form-control"
-            placeholder="Ingrese su nombre" onKeydown="checkInput(event)" onkeyUp="validaName()"  name="n" >
+            placeholder="Ingrese su nombre" onKeydown="checkInput(event)" onkeyUp="validaName()" autofocus=""  name="n" >
             <div id="salida_name"></div>
           </div>
           <div class="lastname-container input-box">
             <label for="lastname" class="sr-only"s>Apellido</label>
-            <input type="text" id="lastname" class="form-control " placeholder="Ingrese su apellido" onkeyDown="checkInput(event)"  name="l"  onkeyUp="validaLastname()" >
+            <input type="text" id="lastname" class="form-control " placeholder="Ingrese su apellido" onkeyDown="checkInput(event)"  onkeyUp="validaLastname()" >
             <div id="salida_lastname"></div>
           </div>
           <div class="email-container input-box">
             <label for="inputEmail" class="sr-only">
               Correo Electrónico
             </label>
-            <input type="email" id="input-email" class="form-control" placeholder="Ingrese su correo electrónico" autofocus="" name="e"  onkeyUp="validaEmail()" >
+            <input type="email" id="input-email" class="form-control" placeholder="Ingrese su correo electrónico"  onkeyUp="validaEmail()" >
             <div for="" id="salida_mail" ></div>
           </div>
           <div class="form-group">
             <label for="inputPassword" class="sr-only">
               Contraseña
             </label>
-            <input type="password" id="input-password" class="form-control" placeholder="Ingrese su contraseña" name="p"  onkeyUp="validaPass()" >
+            <input type="password" id="input-password" class="form-control" placeholder="Ingrese su contraseña"  onkeyUp="validaPass()" >
              <div for="" id="salida_pass" ></div>
           </div>
           <div class="form-group">
@@ -57,7 +57,7 @@
           </div>
           <div class="input-group">
             <div class="input-group-addon">@</div>
-            <input type="text" class="form-control" id="input-social" placeholder="Twitter">
+            <input type="text" class="form-control" id="input-social" placeholder="Twitter (Opcional)">
           </div>
           <div class="checkbox">
             <label>
